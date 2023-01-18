@@ -3,7 +3,10 @@ services:
   node:
     image: "node:lts-alpine"
     user: "node"
+    container_name: "drop"
     working_dir: /home/node/app
+    ports:
+      - "3000:3000"
     volumes:
       - ./server/:/home/node/app
     command: ash -c "npm i && node index.js"
